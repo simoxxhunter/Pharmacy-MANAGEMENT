@@ -26,7 +26,7 @@ public class connection {
             connection = DriverManager.getConnection(URL, USER, PASS);
 
         } catch (ClassNotFoundException | SQLException e) {
-            System.err.println("Erreur lors de la connexion à la base de données : " + e.getMessage());
+            System.err.println("Error cant connet : " + e.getMessage());
         }
         return connection;
     }

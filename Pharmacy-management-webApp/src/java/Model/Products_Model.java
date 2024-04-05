@@ -10,52 +10,50 @@ package Model;
  */
 public class Products_Model {
 
-    public class Products {
+    private int id_product;
+    private String product_name;
+    private int qte;
+    private double price;
+    private String description;
 
-        private int id_product;
-        private String product_name;
-        private int qte;
-        private double price;
-        private String description;
-
-        public int getId_produit() {
-            return id_product;
-        }
-
-        public void setId_produit(int id_product) {
-            this.id_product = id_product;
-        }
-
-        public String getNom_article() {
-            return product_name;
-        }
-
-        public void setNom_article(String nom_article) {
-            this.product_name = nom_article;
-        }
-
-        public int getQuantite() {
-            return qte;
-        }
-
-        public void setQuantite(int quantite) {
-            this.qte = quantite;
-        }
-
-        public String getDescription() {
-            return description;
-        }
-
-        public void setDescription(String description) {
-            this.description = description;
-        }
-
-        public double getPrix() {
-            return price;
-        }
-
-        public void setPrix(double prix) {
-            this.price = prix;
-        }
+    public int id_product() {
+        return id_product;
     }
+
+    public void setid_product(int id_product) {
+        this.id_product = id_product;
+    }
+
+    public String getproduct_name() {
+        return product_name;
+    }
+
+    public void setproduct_name(String product_name) {
+        this.product_name = product_name;
+    }
+
+    public int getQte() {
+        return qte;
+    }
+
+    public void setQte(int Qte) {
+        this.qte = Qte;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
 }
