@@ -27,7 +27,7 @@ public class Products_DAO {
     
     public void AddProduct (Products_Model products){
         try {
-            PreparedStatement prstmt = connect.prepareStatement("INSERT INTO Produit (ID_product, Qte, Price, description)"
+            PreparedStatement prstmt = connect.prepareStatement("INSERT INTO products (ID_product, Qte, Price, description)"
                     + " VALUES (?, ?, ?, ?)");
             prstmt.setString(1, products.getproduct_name());
             prstmt.setInt(2,products.getQte());
@@ -43,7 +43,7 @@ public class Products_DAO {
     public List<Products_Model> ShowProducts(){
         List<Products_Model> products = new ArrayList<>();
         try{
-            PreparedStatement prstmt = connect.prepareStatement("SELECT * from Produit");
+            PreparedStatement prstmt = connect.prepareStatement("SELECT * from products");
             ResultSet res = prstmt.executeQuery();
             
             while(res.next()){

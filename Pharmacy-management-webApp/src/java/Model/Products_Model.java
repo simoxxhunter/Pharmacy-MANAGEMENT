@@ -56,4 +56,9 @@ public class Products_Model {
         this.price = price;
     }
 
+    @Override
+    public String toString() {
+        return "Products_Model{" + "id_product=" + id_product + ", product_name=" + product_name + ", qte=" + qte + ", price=" + price + ", description=" + description + '}';
+    }
+    
 }

@@ -16,7 +16,7 @@
         <form action="AddProduct.jsp" method="post">
             <table>
                 <tr>
-                    <td>PrQteoduct NO: </td>
+                    <td>Product NO: </td>
                     <td>
                         <div/> Number </div>
                     </td>

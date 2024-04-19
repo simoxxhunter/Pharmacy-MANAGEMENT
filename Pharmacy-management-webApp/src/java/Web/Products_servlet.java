@@ -8,6 +8,7 @@ import DAO.Products_DAO;
 import Model.Products_Model;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,15 +21,14 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "Products_servlet", urlPatterns = {"/Products_servlet"})
 public class Products_servlet extends HttpServlet {
-       private Products_DAO Products_DAO;
-    
-    
-    public Products_servlet(){
+
+    private Products_DAO Products_DAO;
+
+    public Products_servlet() {
         super();
-        
+
         Products_DAO = new Products_DAO();
     }
-    
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -47,7 +47,7 @@ public class Products_servlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet Products_servlet</title>");            
+            out.println("<title>Servlet Products_servlet</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet Products_servlet at " + request.getContextPath() + "</h1>");
@@ -68,11 +68,11 @@ public class Products_servlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       // processRequest(request, response);
-       request.setAttribute("produits", Products_DAO.);
-       RequestDispatcher view = request.getRequestDispatcher("index.jsp");
-       view.forward(request, response);
-       
+        // processRequest(request, response);
+        request.setAttribute("products", Products_DAO);
+        RequestDispatcher view = request.getRequestDispatcher("ShowProducts.jsp");
+        view.forward(request, response);
+
     }
 
     /**
@@ -83,24 +83,23 @@ public class Products_servlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    
-     @Override
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //processRequest(request, response);
-        
+
         Products_Model product = new Products_Model();
-        
+
         product.setproduct_name(request.getParameter("Name"));
         product.setQte(Integer.parseInt(request.getParameter("Qte")));
         product.setPrice(Double.parseDouble(request.getParameter("price")));
         product.setDescription(request.getParameter("Description"));
-        
+
         String idProduct = request.getParameter("ID");
-        
-        if(idProduct == null || idProduct.isEmpty()){
+
+        if (idProduct == null || idProduct.isEmpty()) {
             Products_DAO.AddProduct(product);
-        }else{
+        } else {
             product.setid_product(Integer.parseInt(idProduct));
         }
     }
